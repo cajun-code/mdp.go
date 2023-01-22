@@ -10,20 +10,21 @@ import (
 
 	"github.com/microcosm-cc/bluemonday"
 	"github.com/russross/blackfriday/v2"
+	//"github.com/yosssi/gohtml"
 )
 
 const (
 	header = `<!DOCTYPE html>
-	<html>
-		<head>
-			<meta http-equiv="content-type" content="text/html;charset=utf-8">
-			<title>Markdown Preview Tool</title>
-		</head>
-		<body>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8">
+		<title>Markdown Preview Tool</title>
+    </head>
+	<body>
 	`
 	footer = `
-		</body>
-	</html>
+	</body>
+</html>
 	`
 )
 
@@ -63,7 +64,7 @@ func parseContent(input []byte) []byte {
 	buffer.WriteString(header)
 	buffer.Write(body)
 	buffer.WriteString(footer)
-
+	
 	return buffer.Bytes()
 }
 
